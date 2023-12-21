@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/YanaBytkova/node-hw-01#readme",
   "dependencies": {
-    "nodemon": "^3.0.2"
+    "commander": "^11.1.0",
+    "nodemon": "^3.0.2",
+    "package-name": "^0.1.0",
+    "yargs": "^17.7.2"
   }
 }
