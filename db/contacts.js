@@ -25,7 +25,9 @@ async function getContactById(contactId) {
   const contacts = await readFile();
 
   const contact = contacts.find((contact) => contact.id === contactId);
-
+  if (contact !== true) {
+    return null;
+  }
   return contact;
 }
 
@@ -40,33 +42,14 @@ async function addContact(name, email, phone) {
   return newContact;
 }
 
-// async function update(id, contact) {
-//   const contacts = await readFile();
-//   const index = contacts.findIndex((contact) => contact.id === id);
 
-//   if (index === -1) {
-//     return undefined;
-//   }
-
-//   const newContact = { ...contact, id };
-//   // const newBooks = [
-//   //   ...books.slice(0, index),
-//   //   newBook,
-//   //   ...books.slice(index + 1),
-//   // ];
-//   contacts[index] = newContact;
-
-//   await writeFile(contacts);
-
-//   return newBook;
-// }
 
 async function removeContact(contactId) {
   const contacts = await readFile();
   const index = contacts.findIndex((contact) => contact.id === contactId);
 
   if (index === -1) {
-    return undefined;
+    return null;
   }
 
   const newContacts = [...contacts.slice(0, index), ...contacts.slice(index + 1)];

@@ -8,6 +8,7 @@ async function invokeAction({ action, id, name, email, phone }) {
         return console.log(contacts);
       case "get":
         const contact = await  Contacts.getContactById(id);
+        if (contact == null) {return console.log(contact, "No contact with such id" );}
         return console.log(contact);
       case "add":
         const createdContact = await Contacts.addContact(name, email, phone);
@@ -15,6 +16,7 @@ async function invokeAction({ action, id, name, email, phone }) {
     
       case "remove":
         const removedContact = await Contacts.removeContact(id);
+        if (removedContact == null) {return console.log(removedContact, "No contact with such id" );}
         return console.log("This contact was removed: ", removedContact);
       default:
         console.log("Unknown action:(");
