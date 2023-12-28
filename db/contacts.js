@@ -25,7 +25,7 @@ async function getContactById(contactId) {
   const contacts = await readFile();
 
   const contact = contacts.find((contact) => contact.id === contactId);
-  if (contact !== true) {
+  if (contact === undefined) {
     return null;
   }
   return contact;
